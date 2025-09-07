@@ -26,7 +26,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, handleNavLinkClick, 
     <header className="fixed top-0 left-0 w-full z-40 bg-white shadow-md transition-all duration-300 md:bg-white/80 md:backdrop-blur-sm">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center text-2xl font-bold text-indigo-600" onClick={() => setCurrentPage('home')}>
-          <img className="h-8 w-8 mr-2" src='../public/logoVss.jpg' alt='VSS Logo' /> VSS
+          <img className="h-8 w-8 mr-2" src='public/logoVss.jpg' alt='VSS Logo' /> VSS
         </a>
         <nav className="hidden md:flex space-x-8">
           {navItems.map((item) => (

@@ -124,7 +124,7 @@ export default function Home({ handleNavLinkClick, setShowContactModal }: HomePr
             <div className="aspect-video w-full overflow-hidden rounded-3xl shadow-xl">
               <iframe
                 className="w-full h-full"
-                src="../public/VSS.mp4"
+                src="public/VSS.mp4"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
