@@ -1,4 +1,4 @@
-import { BriefcaseIcon, LinkIcon, MessageCircleIcon, MailIcon } from '../icons/icons';
+import {  LinkIcon, MessageCircleIcon, MailIcon } from '../icons/icons';
 
 export default function Footer() {
   return (

@@ -86,7 +86,6 @@ const ScheduleAndCalendar: React.FC<ScheduleAndCalendarProps> = ({ userRole, onC
         <h3 className="text-3xl font-bold text-gray-800 mb-6">Your Scheduled Meetings</h3>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Calendar */}
           <div className="md:w-1/2 flex flex-col items-center">
             <div className="flex justify-between items-center w-full mb-4">
               <button
@@ -116,7 +115,6 @@ const ScheduleAndCalendar: React.FC<ScheduleAndCalendarProps> = ({ userRole, onC
             </div>
             <div className="grid grid-cols-7 gap-1 w-full">{renderCalendarDays()}</div>
           </div>
- 
           <div className="md:w-1/2">
             <h4 className="text-xl font-bold text-indigo-600 mb-4">Schedule for {selectedDate.toDateString()}</h4>
             <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
@@ -162,4 +160,32 @@ const ScheduleAndCalendar: React.FC<ScheduleAndCalendarProps> = ({ userRole, onC
   );
 };
 
-export default ScheduleAndCalendar;
+// --- This is the new, main component to fix your error. ---
+export default function App() {
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [currentUserRole] = useState<UserRole>('employee'); // Or 'employer'
+
+  const handleToggleCalendar = () => {
+    setIsCalendarOpen(prev => !prev);
+  };
+  
+  return (
+    <div className="flex flex-col items-center p-8">
+      <h1 className="text-2xl font-bold mb-4">Welcome to Your Dashboard</h1>
+      <button 
+        onClick={handleToggleCalendar} 
+        className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md shadow-lg hover:bg-indigo-700 transition-colors"
+      >
+        View Calendar
+      </button>
+
+      {/* This is the crucial part that fixes your error */}
+      {isCalendarOpen && (
+        <ScheduleAndCalendar 
+          userRole={currentUserRole} // The required prop
+          onClose={handleToggleCalendar} // The required prop
+        />
+      )}
+    </div>
+  );
+}

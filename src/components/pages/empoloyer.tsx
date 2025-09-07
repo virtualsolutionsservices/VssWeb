@@ -71,7 +71,7 @@ export default function EmployerDashboard() {
   // Filter meetings for selected date
   const meetingsForDay = savedMeetings.filter((m) => m.date === selectedDate);
   // Sort all meetings chronologically
-  const sortedMeetings = [...savedMeetings].sort((a, b) => a.date.localeCompare(b.date));
+  // const sortedMeetings = [...savedMeetings].sort((a, b) => a.date.localeCompare(b.date));
 
   const renderCalendar = () => {
     const today = new Date();
